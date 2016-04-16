@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!--android:layout_alignParentTop="true"-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Record"
+                android:background="@color/colorAccent"
+                android:layout_weight="1"
+                android:height="5dp"/>
+
+            <Button
+                android:id="@+id/stop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Stop recording"
+                android:background="@color/colorStop"
+                android:visibility="gone"
+                android:height="5dp"/>
+
+            <Button
+                android:id="@+id/play"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Play"
+                android:background="@color/colorPlay"
+                android:layout_weight="1"
+                android:height="5dp"
+                android:onClick="play"
+                android:enabled="false" />
+
+            <Button
+                android:id="@+id/stop_playback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/take_picture"
+                android:background="@color/colorStop"
+                android:layout_centerHorizontal="true"
+                android:text="Stop Playing"
+                android:visibility="gone"
+                android:height="5dp"
+                android:onClick="stop"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout"
+            android:gravity="top"
+            android:hint="Enter note here"
+            android:layout_above="@+id/map" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_above="@+id/map"
+            android:background="@color/grey">
+            <LinearLayout
+                android:id="@+id/linearForImage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:maxHeight="50dp"
+                android:orientation="horizontal" />
+
+        </HorizontalScrollView>
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_above="@+id/progressBar"
+             />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBar"
+            android:layout_alignParentBottom="true"
+            android:max="10"
+            android:progress="0"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginTop="-5dp"
+            android:layout_marginBottom="-5dp" />
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>
